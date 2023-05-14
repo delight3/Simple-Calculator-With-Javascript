@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <script>
+      function num1() {
+        document.getElementById("ans").value += "1";
+      }
+      function num2() {
+        document.getElementById("ans").value += "2";
+      }
+      function num3() {
+        document.getElementById("ans").value += "3";
+      }
+      function num4() {
+        document.getElementById("ans").value += "4";
+      }
+      function num5() {
+        document.getElementById("ans").value += "5";
+      }
+      function num6() {
+        document.getElementById("ans").value += "6";
+      }
+      function num7() {
+        document.getElementById("ans").value += "7";
+      }
+      function num8() {
+        document.getElementById("ans").value += "8";
+      }
+      function num0() {
+        document.getElementById("ans").value += "0";
+      }
+      function num9() {
+        document.getElementById("ans").value += "9";
+      }
+      function numdot() {
+        document.getElementById("ans").value += ".";
+      }
+      function back() {
+        txt = document.getElementById("ans").value;
+        len = txt.length;
+
+        lenn = parseInt(len) - 1;
+
+        last = txt.substring(0, lenn);
+
+        document.getElementById("ans").value = last;
+      }
+      function btnplus() {
+        fir = document.getElementById("ans").value;
+        le = fir.length;
+        sessionStorage.setItem("lent", le);
+        sessionStorage.setItem("firs", fir);
+        sessionStorage.setItem("oper", "+");
+        document.getElementById("ans").value += "+";
+      }
+      function btnminus() {
+        fir1 = document.getElementById("ans").value;
+        sessionStorage.setItem("firs", fir1);
+        sessionStorage.setItem("oper", "-");
+        document.getElementById("ans").value = "";
+      }
+      function btnequals() {
+        sec = document.getElementById("ans").value;
+        fir2 = sessionStorage.getItem("firs");
+        oper = sessionStorage.getItem("oper");
+        le2 = sessionStorage.getItem("lent");
+        no = parseInt(le2) + 1;
+
+        sec_operand = sec.substring(no);
+
+        if (oper == "+") {
+          document.getElementById("ans").value =
+            parseFloat(fir2) + parseFloat(sec_operand);
+        } else if (oper == "-") {
+          document.getElementById("ans").value =
+            parseFloat(fir2) - parseFloat(sec);
+        } else if (oper == "*") {
+          document.getElementById("ans").value =
+            parseFloat(fir2) * parseFloat(sec);
+        } else if (oper == "/") {
+          document.getElementById("ans").value =
+            parseFloat(fir2) / parseFloat(sec);
+        }
+      }
+    </script>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+      .calc-holder {
+        height: 350px;
+      }
+      #button {
+        width: 20%;
+      }
+      #lbutton {
+        width: 40.6%;
+      }
+      /* .calculator-keys{width: 100%;} */
+      .calculator-keys > button {
+        padding: 20px;
+        font-size: 20px;
+      }
+      .calculator {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+      }
+      .calculator input {
+        width: 82%;
+        padding: 10px;
+        font-size: 20px;
+        border: 4px solid #e9e9ed;
+      }
+      .opt{
+        background-color: goldenrod;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="col-4 col-sm-5 bg-dark text-light m-auto mt-5 p-3 calc-holder">
+      <div class="calculator">
+        <input
+          type="text"
+          placeholder="0"
+          class="form-control text-end"
+          id="ans"
+          readonly
+        />
+        <!-- <div class="calculator-display">0</div> -->
+        <div class="calculator-keys">
+          <button
+            data-ation="clear"
+            class="mt-5 rounded-circle"
+            id="button"
+            id="AC"
+          >
+            AC
+          </button>
+          <button
+            onclick="back()"
+            class="mt-5 rounded-circle"
+            id="button"
+            id="+/-"
+          >
+            DEL
+          </button>
+          <button
+            onclick="num22()"
+            class="mt-5 rounded-circle"
+            id="button"
+            id="%"
+          >
+            %
+          </button>
+          <button
+            onclick="num22()"
+            class="mt-5 rounded-circle opt"
+            id="button"
+            id="/"
+          >
+            /
+          </button>
+          <br />
+          <button
+            onclick="num7()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="7"
+          >
+            7
+          </button>
+          <button
+            onclick="num8()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="8"
+          >
+            8
+          </button>
+          <button
+            onclick="num9()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="9"
+          >
+            9
+          </button>
+          <button
+            onclick="num22()"
+            class="mt-2 rounded-circle opt"
+            id="button"
+            id="*"
+          >
+            *
+          </button>
+          <br />
+          <button
+            onclick="num4()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="4"
+          >
+            4
+          </button>
+          <button
+            onclick="num5()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="5"
+          >
+            5
+          </button>
+          <button
+            onclick="num6()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="6"
+          >
+            6
+          </button>
+          <button
+            onclick="btnminus()"
+            class="mt-2 rounded-circle opt"
+            id="button"
+            id="-"
+          >
+            -
+          </button>
+          <br />
+          <button
+            onclick="num1()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="1"
+          >
+            1
+          </button>
+          <button
+            onclick="num2()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="2"
+          >
+            2
+          </button>
+          <button
+            onclick="num3()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="3"
+          >
+            3
+          </button>
+          <button
+            onclick="btnplus()"
+            class="mt-2 rounded-circle opt"
+            id="button"
+            id="+"
+          >
+            +
+          </button>
+          <br />
+          <button
+            onclick="num0()"
+            class="mt-2 rounded-circle"
+            id="lbutton"
+            id="0"
+          >
+            0
+          </button>
+          <button
+            onclick="numdot()"
+            class="mt-2 rounded-circle"
+            id="button"
+            id="."
+          >
+            <b>.</b>
+          </button>
+          <button
+            onclick="btnequals()"
+            class="mt-2 rounded-circle opt"
+            id="button"
+            id="="
+          >
+            =
+          </button>
+          <br />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
